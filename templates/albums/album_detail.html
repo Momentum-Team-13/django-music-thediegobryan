@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>All Albums</h1>
+
+<div class="flex flex-wrap">
+    
+    <div class="w-33 pa3">
+    <h2>{{ album.title }}</h2>
+
+    <div class="flex">
+        <div class="pr2"><i class="icofont-location-pin"></i></div>
+        <div>
+        {{ album.artist }}<br />
+        </div>
+        </div>
+    </div>
+</div>  
+{% endblock %}
