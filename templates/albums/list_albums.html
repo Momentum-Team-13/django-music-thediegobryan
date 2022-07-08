@@ -7,7 +7,10 @@
 {% for album in albums %}
 <tr>
     <td><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></td>
-    <td>{{ album.artist }}</td>
+    {% for artist in album.artist.all %} 
+        <td> {{ artist }} </td>
+    {% endfor %}
 </tr>
 {% endfor %}
+
 {% endblock %}

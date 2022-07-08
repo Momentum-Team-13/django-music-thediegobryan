@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', albums_views.list_albums, name='list_albums'),
     path('/albums/new', albums_views.add_album, name='add_album'),
+    path('/albums/new/artist', albums_views.add_artist, name='add_artist'),
     path('/albums/<int:pk>', albums_views.album_detail, name='album_detail'),
     path("/albums/<int:pk>/edit", albums_views.edit_album, name="edit_album"),
     path("/albums/<int:pk>/delete", albums_views.delete_album, name='delete_album'),

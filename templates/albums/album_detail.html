@@ -2,22 +2,18 @@
 
 {% block content %}
 <h1>All Albums</h1>
+<h2>{{ album.title }}</h2>
+<h4>{{ album.artist.first }}</h4>
 
-<div class="flex flex-wrap">
-    
-    <div class="w-33 pa3">
-    <h2>{{ album.title }}</h2>
+<button><a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a></button>
+<button><a href="{% url 'delete_album' pk=album.pk %}">Delete Album</a></button>
 
-    <div class="flex">
-        <div class="pr2"><i class="icofont-location-pin"></i></div>
-        <div>
-        {{ album.artist }}<br />
-        </div>
-        </div>
-    </div>
-    <p>
-        <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
-        <a href="{% url 'delete_album' pk=album.pk %}">Delete Album</a><br>
-    </p>
-</div>  
+<h4>All albums by {{ album.artist.first }}</h4>
+{% for album in all_albums %}
+<tr>
+    <td><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></td>
+    <td> {{ album.artist.first }} </td>
+</tr>
+{% endfor %}
+
 {% endblock %}
